@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nsv_detail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/article_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+        android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+        android:layout_marginTop="@dimen/detail_inner_horiz_margin"
+        android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+        android:paddingBottom="@dimen/detail_body_bottom_margin"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        tools:text="Lorem ipsum"/>
+
+</android.support.v4.widget.NestedScrollView>
