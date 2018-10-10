@@ -157,7 +157,7 @@ public class ArticleListActivity extends AppCompatActivity implements
 
                     overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
 
-                    Log.i(TAG, "mSelectedItemPosition: " + String.valueOf(vh.getAdapterPosition()));
+                    Log.i(TAG, "mSelectedItem: " + String.valueOf(vh.getAdapterPosition()));
                 }
             });
             return vh;
@@ -232,7 +232,4 @@ public class ArticleListActivity extends AppCompatActivity implements
         if (nColumns < 2) return 2;
         return nColumns;
     }
-
-
-
 }

@@ -58,8 +58,6 @@ public class ArticleDetailFragment extends Fragment {
 
     public static final String ARTICLE_TEXT = "article_text";
 
-//    private Cursor mCursor;
-//    private long mItemId;
     private View mRootView;
     private String articleText;
 

@@ -13,4 +13,7 @@
     <string name="snackbar_message">Swipe left or right to the next article</string>
 
     <string name="transition_image">image</string>
+
+    <string name="title">Title</string>
+    <string name="subtitle">Subtitle</string>
 </resources>

@@ -1,16 +1,19 @@
 package com.example.xyzreader.ui;
 
+import android.app.FragmentManager;
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +26,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -100,8 +104,6 @@ public class ArticleDetailActivity extends AppCompatActivity
                     mSelectedItemId = getIntent().getExtras().getInt(ITEM_POSITION, 0);
                     Log.i(TAG, "mSelectedItemId = " + mSelectedItemId);
                 }
-//                mSelectedItemId = ItemsContract.Items.getItemId(getIntent().getData());
-                Log.i(TAG, "mSelectedItemId = " + mSelectedItemId);
             }
         }
 
@@ -123,7 +125,6 @@ public class ArticleDetailActivity extends AppCompatActivity
                     mCursor.moveToPosition(position);
                 }
                 mSelectedItemId = position;
-//                mSelectedItemId = mCursor.getLong(ArticleLoader.Query._ID);
                 mPagerAdapter.notifyDataSetChanged();
                 showArticleDetails();
             }
@@ -228,15 +229,10 @@ public class ArticleDetailActivity extends AppCompatActivity
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         Log.i(TAG, "mSelectedItemId/onCreateLoader = " + mSelectedItemId);
         return ArticleLoader.newAllArticlesInstance(this);
-//        return ArticleLoader.newInstanceForItemId(this, mSelectedItemId);
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-
-        int position = cursor.getPosition();
-        Log.i(TAG, "onLoadfinished mSelectedItemId: " + position);
-
         mCursor = cursor;
 
         showArticleDetails();
@@ -245,8 +241,7 @@ public class ArticleDetailActivity extends AppCompatActivity
         mPager.setAdapter(mPagerAdapter);
         mPager.setPageMargin((int) TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics()));
-        // mPager.setPageMarginDrawable(new ColorDrawable(0x22000000));
-        mPager.setCurrentItem(position);
+        mPager.setCurrentItem(mSelectedItemId);
         mPagerAdapter.notifyDataSetChanged();
     }
 
@@ -280,13 +275,6 @@ public class ArticleDetailActivity extends AppCompatActivity
             super(fm);
         }
 
-//        @Override
-//        public Parcelable saveState() {
-//            Bundle bundle = (Bundle) super.saveState();
-//            bundle.putParcelableArray("states", null); // Never maintain any states from the base class, just null it out
-//            return bundle;
-//        }
-
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
             mCursor.moveToPosition(position);
@@ -297,6 +285,7 @@ public class ArticleDetailActivity extends AppCompatActivity
         public int getCount() {
             return (mCursor != null) ? mCursor.getCount() : 0;
         }
+
     }
 
     // Method to share the article

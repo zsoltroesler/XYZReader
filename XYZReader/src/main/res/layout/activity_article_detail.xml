@@ -18,7 +18,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="@dimen/collapsing_toolbar_size"
             android:background="@color/photo_placeholder"
             app:contentScrim="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -60,7 +60,7 @@
                         android:id="@+id/article_byline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="@dimen/detail_text_margin_top"
                         android:textColor="#8fff" />
 
                 </LinearLayout>
@@ -88,7 +88,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/detail_margin_top"
             android:orientation="vertical">
 
             <android.support.v4.view.ViewPager
@@ -104,10 +104,10 @@
         android:id="@+id/share_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/detail_margin"
         android:tint="@android:color/white"
         android:src="@drawable/ic_share"
-        app:elevation="6dp"
+        app:elevation="@dimen/fab_elevation"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|end" />
 

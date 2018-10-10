@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:fitsSystemWindows="true"
-        android:elevation="4dp"
+        android:elevation="@dimen/appbar_elevation"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.v7.widget.Toolbar
@@ -35,8 +35,8 @@
         android:id="@+id/container_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:elevation="4dp">
+        android:layout_marginTop="@dimen/list_margin_top"
+        android:elevation="@dimen/appbar_elevation">
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh_layout"
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:paddingBottom="28dp"
+                android:paddingBottom="@dimen/list_padding_bottom"
                 android:paddingLeft="@dimen/list_side_margin"
                 android:paddingRight="@dimen/list_side_margin"
                 android:scrollbarStyle="outsideOverlay" />

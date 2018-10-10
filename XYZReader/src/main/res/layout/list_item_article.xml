@@ -3,14 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
+    android:layout_margin="@dimen/cardview_margin"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
-    android:elevation="6dp"
+    android:elevation="@dimen/cardview_elevation"
     android:transitionName="@string/transition_image">
 
     <LinearLayout
@@ -26,39 +23,28 @@
             android:scaleType="centerCrop"
             android:background="@color/photo_placeholder" />
 
-        <!--<ImageView-->
-            <!--android:id="@+id/thumbnail"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:adjustViewBounds="true"-->
-            <!--android:background="@color/photo_placeholder"-->
-            <!--android:contentDescription="thumbnail"/>-->
-
         <TextView
             android:id="@+id/item_title"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingTop="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="4dp"
+            android:padding="@dimen/list_padding"
             android:textColor="@color/colorAccent"
-            tools:text="Title"
+            tools:text="@string/title"
             android:ellipsize="end"
-            android:maxLines="4" />
+            android:maxLines="2" />
 
         <TextView
             android:id="@+id/item_byline"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp"
+            android:paddingLeft="@dimen/list_padding"
+            android:paddingRight="@dimen/list_padding"
+            android:paddingBottom="@dimen/list_padding"
             android:textColor="@color/colorText"
             android:maxLines="2"
-            tools:text="Subtitle"
+            tools:text="@string/subtitle"
             android:ellipsize="end" />
     </LinearLayout>
 
